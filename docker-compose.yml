@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  hormuz-shield:
+    build: .
+    container_name: hormuz-shield
+    ports:
+      - "3001:3001"  # Risk Oracle
+      - "3002:3002"  # Insurer Pool
+      - "3003:3003"  # Shipowner
+      - "3004:3004"  # Claims Verifier
+      - "5173:5173"  # Web UI
+    environment:
+      - NODE_ENV=production
+      - BSV_NETWORK=${BSV_NETWORK:-test}
+      - ORACLE_PRIVATE_KEY=${ORACLE_PRIVATE_KEY}
+      - INSURER_PRIVATE_KEY=${INSURER_PRIVATE_KEY}
+      - SHIPOWNER_PRIVATE_KEY=${SHIPOWNER_PRIVATE_KEY}
+      - VERIFIER_PRIVATE_KEY=${VERIFIER_PRIVATE_KEY}
+      - AIS_API_KEY=${AIS_API_KEY}
+      - MESSAGEBOX_BASE_URL=${MESSAGEBOX_BASE_URL:-https://messagebox.babbage.systems}
+      - POOL_CAPACITY_SATS=${POOL_CAPACITY_SATS:-100000000}
+      - VERIFICATION_FEE=${VERIFICATION_FEE:-10}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - hormuz-network
+
+networks:
+  hormuz-network:
+    driver: bridge

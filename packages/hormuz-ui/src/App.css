@@ -1,0 +1,143 @@
+.dashboard {
+  display: grid;
+  grid-template-rows: auto minmax(420px, 1fr) minmax(180px, 30vh);
+  height: 100vh;
+  gap: 12px;
+  padding: 12px;
+}
+
+.metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.metric-item {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e7ebf3;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-item span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.metric-item strong {
+  font-size: 18px;
+}
+
+.sparkline {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 12px;
+  min-height: 0;
+}
+
+.map-panel {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e7ebf3;
+  overflow: hidden;
+}
+
+.connection-pill {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: #111827;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 999px;
+}
+
+.agent-panel {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e7ebf3;
+  padding: 10px;
+  overflow: auto;
+}
+
+.agent-panel h2,
+.tx-feed h2 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.agent-list {
+  display: grid;
+  gap: 8px;
+}
+
+.agent-card {
+  border: 1px solid #e7ebf3;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.agent-card h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.agent-card p {
+  margin: 2px 0;
+  font-size: 12px;
+  color: #475569;
+}
+
+.tx-feed {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e7ebf3;
+  padding: 10px;
+  overflow: auto;
+}
+
+.tx-table {
+  display: grid;
+  gap: 6px;
+}
+
+.tx-row {
+  display: grid;
+  grid-template-columns: 90px 130px minmax(220px, 1fr) 95px 50px;
+  gap: 10px;
+  border: 1px solid #eef2f8;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  align-items: center;
+}
+
+.tx-row a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+@media (max-width: 1160px) {
+  .dashboard {
+    grid-template-rows: auto minmax(360px, 1fr) minmax(220px, 40vh);
+  }
+
+  .metrics-bar {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,24 @@
+# TESTNET ADDRESSES - Fund at BSV Testnet Faucet (FREE)
+#
+# Faucet Options:
+# 1. https://faucet.bitcoincloud.net/ (Recommended)
+# 2. https://bsvfaucet.net/en
+# 3. https://www.push-the-button.app/
+
+Oracle (2× requests = ~0.1 BSV):
+miUBkwUZDzCtFYT8faqszNh7CkKXSBGueH
+
+Insurer (5× requests = ~0.5 BSV):
+n4VVmqzRFX7XbohS9EfbCX8of1sUYQLmQV
+
+Shipowner (3× requests = ~0.2 BSV):
+moGP9Y8PD7u4D9JD4shreU19hq3WRkFnPz
+
+Verifier (1× request = ~0.05 BSV):
+mgVtJZPZYJ4XABpsbdTitU2fv6Zg5heHB7
+
+# MAINNET ADDRESSES (in case you need them)
+Oracle:    13xETtPaQxmdURyWx1sWATUnLkipTt2hjE
+Insurer:   1PyYUnuSSVgGphDpRfhDNbvUo2GmY7JPVr
+Shipowner: 18kRrV3QQ6ToS2pbMJjUpYnpqqSobGH2aJ
+Verifier:  1yw1WJajGdGP5MFt4VM4YpM46xyAjcH63

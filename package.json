@@ -1,0 +1,57 @@
+{
+  "name": "hormuz-shield-bsv",
+  "version": "1.0.0",
+  "description": "Autonomous maritime micro-insurance system using BSV blockchain",
+  "author": "Francisco Hipolito Garcia Martinez",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev --workspaces --if-present",
+    "test": "vitest",
+    "test:unit": "vitest run",
+    "test:e2e": "vitest run tests/e2e",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage",
+    "start:oracle": "npm run start -w packages/risk-oracle",
+    "start:insurer": "npm run start -w packages/insurer-pool",
+    "start:shipowner": "npm run start -w packages/shipowner",
+    "start:verifier": "npm run start -w packages/claims-verifier",
+    "start:ui": "npm run dev -w packages/hormuz-ui",
+    "start:all": "node scripts/run-all-agents.js",
+    "generate-wallets": "tsx scripts/generate-wallets.ts",
+    "check-balances": "tsx scripts/check-balances.ts",
+    "transfer-funds": "tsx scripts/transfer-funds.ts",
+    "verify-bsv": "tsx scripts/verify-bsv-integration.ts",
+    "verify-bsv:test-tx": "tsx scripts/verify-bsv-integration.ts --test-tx",
+    "docker:build": "docker build -t hormuz-shield .",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/ws": "^8.5.10",
+    "@vitest/coverage-v8": "^1.2.0",
+    "concurrently": "^8.2.2",
+    "pm2": "^5.3.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  },
+  "dependencies": {
+    "@bsv/message-box-client": "^1.2.0",
+    "@bsv/sdk": "^2.0.13",
+    "@bsv/simple": "^0.3.0",
+    "@bsv/wallet-toolbox": "^2.1.19",
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "ws": "^8.20.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
